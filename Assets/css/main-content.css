@@ -80,6 +80,14 @@
     border-radius: 8px;
 }
 
+.valid {
+    border: 3px solid green;
+}
+
+.invalid {
+    border: 3px solid red;
+}
+
 .gallery-form textarea {
     resize: none;
 }

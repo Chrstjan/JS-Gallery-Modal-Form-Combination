@@ -105,6 +105,43 @@ const createImageGallery = () => {
 
         const submitButton = createInputButton("submit", "button-gallery", "Send message");
 
+        const validateInput = (input, regEx) => {
+          const trimmedValue = input.value.trim();
+          const isValid = regEx.test(trimmedValue);
+
+          if (isValid) {
+            input.classList.add("valid");
+          }
+          else {
+            input.classList.add("invalid");
+          }
+
+          return isValid;
+        }
+
+        const formValidation = (e) => {
+          e.preventDefault();
+          const nameRegExp = /^[a-zA-Z]{2,17}$/
+          const emailRegExp = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/
+          const phoneRegExp = /^[0-9]{8,12}$/
+          const messageRegExp = /^[\s\S]{0,150}$/
+
+          const isFNameValid = validateInput(fName, nameRegExp);
+          const isLNameValid = validateInput(lName, nameRegExp);
+
+          const isEmailValid = validateInput(email, emailRegExp);
+          const isPhoneValid = validateInput(phone, phoneRegExp);
+          const isMessageValid = validateInput(message, messageRegExp);
+          
+          if (isFNameValid && isLNameValid && isEmailValid && isPhoneValid && isMessageValid) {
+            console.log("Form is valid");
+          }
+          else {
+            console.log("There's a error in the form");
+          }
+        }
+
+        submitButton.addEventListener("click", formValidation);
         const resetButton = createInputButton("reset", "reset-button", "reset");
 
         const appendChildren = (parent, elements) => {
