@@ -44,7 +44,7 @@ const createImageGallery = () => {
     galleryFooter.appendChild(galleryButton);
 
     galleryFigure.appendChild(galleryFooter);
-
+ 
     const openImageModal = () => {
       const modalWindow = document.createElement("figure");
       modalWindow.classList.add("modal-image");
@@ -97,7 +97,7 @@ const createImageGallery = () => {
         submitButton.classList.add("button-gallery");
         submitButton.textContent = "Send message";
 
-        
+
         fieldSet.appendChild(fNameLabel);
         fieldSet.appendChild(fName);
 
