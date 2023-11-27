@@ -6,18 +6,19 @@
 }
 
 .gallery-figure {
-    width: 100%;
-    height: 100%;
+    width: 15vw;
+    height: 15vw;
     border: 2px solid #000;
     display: flex;
     flex-direction: column;
-    padding-bottom: 1rem;
+    padding-bottom: 4rem;
+    background-color: #eee;
 }
 
 .gallery-figure img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: 99%;
+    object-fit: fill;
     cursor: pointer;
 }
 

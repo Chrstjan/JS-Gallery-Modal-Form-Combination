@@ -1,11 +1,9 @@
-
 //Gallery
 const productsArray = [
   "milk.jpg",
   "Drugs.jpg",
   "FatOwl.jpg",
   "halfBurger.jpg",
-  "Minecraft.jpg",
 ];
 
 const baseUrl = "./assets/images/";
@@ -34,7 +32,10 @@ const createImageGallery = () => {
 
     const galleryFooter = document.createElement("figcaption");
     galleryFooter.classList.add("product-text");
-    galleryFooter.innerHTML = "<p>Product text</p>";
+    galleryFooter.innerHTML = "<h3>Product text</h3>";
+    const galleryPrice = document.createElement("p");
+    galleryPrice.innerHTML = "$10.99";
+    galleryFooter.appendChild(galleryPrice);
     galleryFigure.appendChild(galleryFooter);
 
     const openModal = () => {
