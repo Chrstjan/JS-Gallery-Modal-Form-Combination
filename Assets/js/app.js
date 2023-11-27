@@ -63,57 +63,71 @@ const createImageGallery = () => {
         modalWindow.classList.add("gallery-form");
         const fieldSet = document.createElement("fieldset");
 
-        const fNameLabel = document.createElement("label");
-        fNameLabel.textContent = "Enter your first name";
-        const fName = document.createElement("input");
-        fName.setAttribute("type", "text");
-        fName.setAttribute("placeholder", "First Name");
+        const xBtn = document.createElement("span");
+        xBtn.classList.add("x-btn");
+        xBtn.innerHTML = "&times;";
 
-        const lNameLabel = document.createElement("label");
-        lNameLabel.textContent = "Enter your last name";
-        const lName = document.createElement("input");
-        lName.setAttribute("type", "text");
-        lName.setAttribute("placeholder", "Last Name");
+        const createLabel = (text) => {
+          const label = document.createElement("label");
+          label.textContent = text;
+          return label;
+        }
+        
+        const createInput = (type, placeholder) => {
+          const input = document.createElement("input");
+          input.setAttribute("type", type);
+          input.setAttribute("placeholder", placeholder);
+          return input;
+        }
 
-        const emailLabel = document.createElement("label");
-        emailLabel.textContent = "Enter your email";
-        const email = document.createElement("input");
-        email.setAttribute("type", "email");
-        email.setAttribute("placeholder", "Email");
+        const createInputButton = (type, className, text) => {
+          const inputBtn = document.createElement("input");
+          inputBtn.setAttribute("type", type);
+          inputBtn.classList.add(className);
+          inputBtn.textContent = text;
+          return inputBtn;
+        }
 
-        const phoneLabel = document.createElement("label");
-        phoneLabel.textContent = "Enter your phone number";
-        const phone = document.createElement("input");
-        phone.setAttribute("type", "tel");
-        phone.setAttribute("placeholder", "Phone Number");
+        const fNameLabel = createLabel("Enter your first name");
+        const fName = createInput("text", "First Name");
 
-        const messageLabel = document.createElement("label");
-        messageLabel.textContent = "Enter your message";
-        const message = document.createElement("textarea");
-        message.setAttribute("placeholder", "Message");
+        const lNameLabel = createLabel("Enter your last name");
+        const lName = createInput("text", "Last Name");
 
-        const submitButton = document.createElement("input");
-        submitButton.setAttribute("type", "submit");
-        submitButton.classList.add("button-gallery");
-        submitButton.textContent = "Send message";
+        const emailLabel = createLabel("Enter your email");
+        const email = createInput("email", "Email");
 
+        const phoneLabel = createLabel("Enter your phonenumber");
+        const phone = createInput("tel", "Phonenumber");
 
-        fieldSet.appendChild(fNameLabel);
-        fieldSet.appendChild(fName);
+        const messageLabel = createLabel("Enter your message");
+        const message = createInput("textarea", "Message");
 
-        fieldSet.appendChild(lNameLabel);
-        fieldSet.appendChild(lName);
+        const submitButton = createInputButton("submit", "button-gallery", "Send message");
 
-        fieldSet.appendChild(emailLabel);
-        fieldSet.appendChild(email);
+        const resetButton = createInputButton("reset", "reset-button", "reset");
 
-        fieldSet.appendChild(phoneLabel);
-        fieldSet.appendChild(phone);
+        const appendChildren = (parent, elements) => {
+          elements.forEach(element => {
+            parent.appendChild(element);
+          });
+        };
 
-        fieldSet.appendChild(messageLabel);
-        fieldSet.appendChild(message);
-
-        fieldSet.appendChild(submitButton);
+        appendChildren(fieldSet, [
+          xBtn,
+          fNameLabel,
+          fName,
+          lNameLabel,
+          lName,
+          emailLabel,
+          email,
+          phoneLabel,
+          phone,
+          messageLabel,
+          message,
+          submitButton,
+          resetButton
+        ]);
 
         gallery.innerHTML = "";
         modalWindow.appendChild(fieldSet);
